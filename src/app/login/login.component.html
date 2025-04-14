@@ -1,17 +1,24 @@
 <div class="login-container">
-    <h1>Accedi</h1>
-    <form>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Inserisci la tua email" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Inserisci la tua password" required />
-      </div>
-      <button type="submit" class="login-button">Accedi</button>
-      <p class="signup-link">
-        Non hai un account? <a href="/signup">Registrati</a>
-      </p>
-    </form>
-  </div>
+  <h2>Accesso Area Clienti</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">Email o Username</label>
+      <input type="text" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <div class="forgot-password">
+      <a href="#">Password dimenticata?</a>
+    </div>
+
+    <button type="submit" class="submit-button">Accedi</button>
+
+    <div class="footer-text">
+      Non hai un account? <a href="/register">Registrati qui</a>
+    </div>
+  </form>
+</div>
