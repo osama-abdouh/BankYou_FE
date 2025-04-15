@@ -1,0 +1,342 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px); /* Sposta leggermente verso l'alto */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Posizione originale */
+    }
+  }
+  
+  .BankU-Logo {
+    animation: fadeIn 0.8s ease-in-out; /* Applica l'animazione */
+  }
+  
+  /* Classe per sfocare il contenuto */
+  .blur-effect {
+    filter: blur(5px); /* Applica un effetto di sfocatura */
+    transition: filter 0.3s ease; /* Transizione fluida */
+  }
+  
+  .account-summary,
+  .recent-transactions {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Colore di sfondo chiaro */
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .personal-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem; /* Spaziatura tra le sezioni */
+  }
+    
+    .header {
+      /*sfondo della scritta principale*/
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius:12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombra leggera */
+      background-color: #e0e0e0;
+      
+    }
+    .text-container {
+      display: flex; /* Usa Flexbox per il layout */
+      flex-direction: column; /* Dispone h1 e p in colonna */
+      justify-content: center; /* Centra verticalmente */
+    }
+    
+    .text-container h1 {
+      font-size: 3rem; /* Dimensione del testo */
+      color: #333; /* Colore del testo */
+      margin: 0; /* Rimuovi margini predefiniti */
+    }
+    
+    .text-container p {
+      font-size: 1.2rem; /* Dimensione del testo del paragrafo */
+      color: #666; /* Colore più morbido */
+      margin: 0;
+      margin-top: 0.5rem; /* Spazio sopra il paragrafo */
+    }
+  
+    .account-summary {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      background-color: #d9d9d9;
+      border-radius: 12px; /* Bordi arrotondati */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombra più morbida */
+      padding: 2rem; /* Spaziatura interna */
+      margin: 2rem 0; /* Spaziatura esterna */
+      transition: transform 0.3s ease; /* Effetto hover */
+    }
+    
+    .account-summary:hover {
+      transform: translateY(-5px); /* Solleva leggermente al passaggio del mouse */
+    }
+    
+    .account-summary h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem; /* Spazio sotto il titolo */
+    }
+    
+    .account-summary button {
+      font-size: 4rem; /* Dimensione del testo */
+      background-color:#d9d9d9; /* Colore di sfondo del bottone */
+      cursor: pointer; /* Cambia il cursore in una mano */
+      border: none; 
+      outline: none; /* Rimuove il bordo di focus */
+    }
+  
+    .dashboard {
+      display: flex; /* Dispone le sezioni in fila */
+      gap: 2rem; /* Spaziatura tra le sezioni */
+      justify-content: space-between; /* Spaziatura uniforme */
+      align-items: flex-start; /* Allinea gli elementi in alto */
+      margin-top: 2rem; /* Spaziatura sopra il contenitore */
+    }
+    
+    .recent-transactions {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: #d9d9d9;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      margin: 0;
+      width: 100%;
+      max-width: 50%; /* Limita la larghezza */
+      
+    }
+  
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2,1fr); /* Due colonne */
+      gap: 1rem; /* Spaziatura tra le colonne */
+      background-color: #d9d9d9; /* Colore di sfondo chiaro */
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      margin: 0;
+      width: 100%;
+      max-width: 50%; /* Limita la larghezza */
+      overflow: visible;
+    }
+    .quick-actions h2 {
+      grid-column: span 2; /* Occupa entrambe le colonne */
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+      text-align: center; /* Centra il testo */
+    }
+  
+    .quick-actions button {
+      font-size: 1rem;
+      color: #fff;
+      background: linear-gradient(90deg, #001f3f, #00509e); /* Colore blu per i pulsanti */
+      border: none;
+      border-radius: 10px;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Ombra leggera */
+    }
+    
+    .quick-actions button:hover {
+      background-color: #0056b3; /* Colore più scuro al passaggio del mouse */
+      transform: scale(1.05); /* Leggero ingrandimento */
+    }
+    
+    .quick-actions button:active {
+      background-color: #003f7f; /* Colore più scuro quando premuto */
+      transform: scale(0.95); /* Leggero rimpicciolimento */
+    }
+    
+    .recent-transactions h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    
+    .recent-transactions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    
+    .recent-transactions li {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #ddd; /* Linea divisoria */
+      transition: background-color 0.3s ease;
+    }
+  
+    .recent-transactions li:hover {
+      background-color: #f9f9f9; /* Cambia colore al passaggio del mouse */
+    }
+    
+    /*menu-bar*/
+    .menu-bar {
+      width: 96.5%;
+      background: linear-gradient(90deg, #001f3f, #00509e); /* Gradiente blu scuro */
+      padding: 1rem 2rem; /* Spaziatura interna */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombra pronunciata */
+      display: flex; /* Dispone gli elementi in fila */
+      align-items: center; /* Centra verticalmente gli elementi */
+      justify-content: space-between; /* Spaziatura tra gli elementi */
+      border-radius: 12px; /* Bordi arrotondati */
+      gap:0; /* Spaziatura tra gli elementi */
+      height: 60px;
+      overflow: hidden; /* Nasconde il contenuto in eccesso */
+    }
+    
+    .BankU-Logo {
+      display: flex;
+      align-items: center; /* Centra verticalmente il logo */
+      justify-content: center; /* Centra orizzontalmente */
+      height: 100%; /* Altezza del logo */
+      margin-right: 0; /* Sposta il logo a sinistra */
+      transform: translateX(20px); /* Sposta il logo verso destra */
+    }
+    
+    .BankU-Logo img {
+      height: 1000%; /* Altezza del logo */
+      width: 50%; /* Dimensione del logo */
+      object-fit: contain; /* Mantiene le proporzioni */
+      margin-right: 0; /* Sposta il logo a sinistra */
+      transform: translateX(190px); /* Sposta il logo verso destra */
+    }
+    
+    .menu-bar ul {
+      list-style: none; /* Rimuove i punti elenco */
+      margin: 0;
+      padding: 0;
+      display: flex; /* Dispone gli elementi in fila */
+      gap: 1.5rem; /* Spaziatura tra i link */
+    }
+    
+    .menu-bar li {
+      margin: 0; /* Rimuove margini extra */
+    }
+    
+    .menu-bar a {
+      text-decoration: none; /* Rimuove la sottolineatura */
+      color: #fff; /* Colore del testo bianco */
+      font-size: 1.2rem; /* Dimensione del testo */
+      font-weight: bold;
+      padding: 0.5rem 1rem; /* Spaziatura interna */
+      border-radius: 8px; /* Bordi arrotondati */
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Effetti di hover */
+    }
+    
+    .menu-bar a:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Sfondo trasparente al passaggio del mouse */
+      transform: scale(1.1); /* Leggero ingrandimento */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra sul link */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Ombra sul testo */
+    }
+    
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px; /* Larghezza del menu */
+      height: 20px; /* Altezza totale del menu */
+      cursor: pointer; /* Cambia il cursore in una mano */
+      margin-left: 0;
+    }
+    
+    
+    .hamburger-menu span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #fff; /* Colore bianco per contrasto */
+      border-radius: 2px;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Effetto hover */
+    }
+    
+    .hamburger-menu:hover span {
+      background-color: #00c6ff; /* Cambia colore al passaggio del mouse */
+    }
+    
+    .hamburger-menu span:nth-child(1) {
+      transform-origin: top left;
+    }
+    
+    .hamburger-menu span:nth-child(3) {
+      transform-origin: bottom left;
+    }
+  
+    .menu-bar > .BankU-Logo,
+  .menu-bar > .hamburger-menu {
+    margin-left: 0; /* Rimuove qualsiasi spaziatura tra il logo e l'hamburger menu */
+  }
+    
+    .lingua {
+      display: flex; /* Dispone i pulsanti in fila */
+      gap: 1rem; /* Spaziatura tra i pulsanti */
+      justify-content: center; /* Centra i pulsanti */
+      align-items: center; /* Allinea verticalmente */
+    
+    }
+    
+    .lingua button {
+      font-size: 1rem; /* Dimensione del testo */
+      color: #fff; /* Colore del testo bianco */
+      background: linear-gradient(90deg, #434141, #5146ed); /* Gradiente blu */
+      border: none; /* Rimuove il bordo */
+      border-radius: 8px; /* Bordi arrotondati */
+      padding: 0.5rem 1rem; /* Spaziatura interna */
+      cursor: pointer; /* Cambia il cursore in una mano */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Transizione per hover */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+      transform: translateX(450px); /* Sposta il logo verso destra */
+    }
+    
+    .lingua button:hover {
+      background: linear-gradient(90deg, #007bff, #003f7f); /* Colore più chiaro al passaggio del mouse */
+      transform: scale(1.05); /* Leggero ingrandimento */
+    }
+    
+    .lingua button:active {
+      background: linear-gradient(90deg, #003f7f, #001f3f); /* Colore più scuro quando premuto */
+      transform: scale(0.95); /* Leggero rimpicciolimento */
+    }
+    
+    .lingua button:focus {
+      outline: 2px solid #007bff; /* Aggiunge un bordo di focus */
+      outline-offset: 2px;
+    }
+  
