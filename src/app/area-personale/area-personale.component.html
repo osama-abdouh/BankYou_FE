@@ -176,33 +176,8 @@
       }
     }
   </style>
-  <!-- Barra di Menu -->
-  <nav class="menu-bar">
   
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/account">Account</a></li>
-      <li><a href="/transactions">Transazioni</a></li>
-      <li><a href="/investments">Investimenti</a></li>
-      <li><a href="/settings">Impostazioni</a></li>
-    </ul>
-    <div class="lingua">
-    <button>ITA</button>
-    <button>ENG</button>
-  </div>
-  <div class="BankU-Logo">
-    <img src="assets/Logo.png" alt="BankU Logo" />
-  </div>
-  
-  <!-- Icona Hamburger -->
-    <div class="hamburger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
    <!-- Header -->
-   
    <header class="header">
     <div class="text-container">
     <h1>Welcome back, {{ userName }}</h1>
@@ -234,21 +209,28 @@
   <ng-template #noTransactions>
   <p>Nessuna transazione recente disponibile.</p>
   </ng-template>
+</div>
+
+<div class="popup" [class.show]="isPopupVisible">
+  <div class="popup-content">
+    <h2>Conferma Azione</h2>
+    <p>Sei sicuro di voler eseguire questa azione?</p>
+    <button (click)="closePopup()">Annulla</button>
+    <button (click)="closePopup()">Conferma</button>
   </div>
-  
+</div>
+
   <!-- Quick Actions -->
     <section class="quick-actions">
       <h2>Azioni Rapide</h2>
-      <button (click)="transferMoney()">Bonifico</button>
-      <button (click)="cordinate_conto()">Cordinate conto</button>
-      <button (click)="Aggiungi_fondi()">Aggiungi Fondi</button>
-      <button (click)="Altro()">Altro</button>
+      <button (click)="openPopup()">Bonifico</button>
+      <button (click)="openPopup()">Cordinate conto</button>
+      <button (click)="openPopup()">Aggiungi Fondi</button>
+      <button (click)="openPopup()">Altro</button>
   
     </section>
-  </div>
-    
-  <main class="personal-area"></main>
   
+
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
   <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
   <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->

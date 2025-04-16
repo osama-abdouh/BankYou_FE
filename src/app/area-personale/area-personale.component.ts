@@ -44,6 +44,17 @@ export class AreaPersonaleComponent {
     button.classList.toggle('blur-effect'); // Inverte lo stato dello sfocamento
   }
 
+isPopupVisible = false; // Stato per gestire la visibilità del popup
 
+  openPopup() {
+    this.isPopupVisible = true; // Mostra il popup
+  }
+
+  closePopup() {
+    this.isPopupVisible = false; // Nasconde il popup
 }
-//ciao merda
+}
+
+
+  
+

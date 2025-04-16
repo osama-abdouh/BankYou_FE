@@ -163,7 +163,7 @@
     .quick-actions button {
       font-size: 1rem;
       color: #fff;
-      background: linear-gradient(90deg, #001f3f, #00509e); /* Colore blu per i pulsanti */
+      background:#1E2D40; /* Colore blu per i pulsanti */
       border: none;
       border-radius: 10px;
       padding: 0.75rem 1.5rem;
@@ -339,4 +339,95 @@
       outline: 2px solid #007bff; /* Aggiunge un bordo di focus */
       outline-offset: 2px;
     }
-  
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .popup.show {
+      display: flex;
+    }
+    
+    .popup-content {
+      position: relative;
+      background: linear-gradient(90deg, #1E2D40, #0056b3); /* Stesso gradiente dei pulsanti rapidi */
+      padding: 2.5rem; /* Spaziatura interna maggiore */
+      border-radius: 16px; /* Bordi più arrotondati */
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), /* Ombra principale */
+                  0 8px 10px rgba(0, 0, 0, 0.2); /* Ombra secondaria */
+      width: 400px; /* Larghezza maggiore */
+      height: auto; /* Altezza dinamica */
+      max-width: 90%; /* Adatta il popup agli schermi più piccoli */
+      overflow: hidden; /* Nascondi il contenuto in eccesso */
+      transform: translateZ(0); /* Assicura il rendering 3D */
+      perspective: 1000px; /* Aggiunge profondità */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transizioni fluide */
+    }
+    
+    .popup-content::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0, 123, 255, 0.3), rgba(255, 255, 255, 0));
+      z-index: -1; /* Posiziona dietro il contenuto */
+      filter: blur(15px); /* Effetto sfocato */
+    }
+    
+    .popup-content:hover {
+      transform: translateY(-10px) scale(1.05); /* Solleva e ingrandisce leggermente */
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), /* Ombra più pronunciata */
+                  0 10px 15px rgba(0, 0, 0, 0.3); /* Ombra secondaria */
+    }
+    
+    .popup-content h2 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    
+    .popup-content p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .popup-content button {
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .popup-content button:first-child {
+      background-color: #ccc;
+      color: #333;
+    }
+    
+    .popup-content button:last-child {
+      background: linear-gradient(90deg, #007bff, #0056b3); /* Gradiente blu */
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra sui pulsanti */
+    }
+    
+    .popup-content button:last-child:hover {
+      background: linear-gradient(90deg, #0056b3, #003f7f); /* Colore più scuro al passaggio del mouse */
+      transform: scale(1.1); /* Leggero ingrandimento */
+    }
