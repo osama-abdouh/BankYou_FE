@@ -11,4 +11,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   title = 'BankU';
+  isMenuOpen: boolean = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
+
