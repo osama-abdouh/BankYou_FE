@@ -1,24 +1,24 @@
 <div class="login-container">
   <h2>Accesso Area Clienti</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()"> <!-- ngSubmit collega il form al metodo -->
     <div class="form-group">
       <label for="email">Email o Username</label>
-      <input type="text" id="email" name="email" required>
+      <input type="text" id="email" name="email" [(ngModel)]="credentials.email" required>
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-
-    <div class="forgot-password">
-      <a href="#">Password dimenticata?</a>
+      <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
     </div>
 
     <button type="submit" class="submit-button">Accedi</button>
-
-    <div class="footer-text">
-      Non hai un account? <a href="/register">Registrati qui</a>
-    </div>
   </form>
+
+  <div class="forgot-password">
+    <a href="#">Password dimenticata?</a>
+  </div>
+
+  <div class="footer-text">
+    Non hai un account? <a href="/register">Registrati qui</a>
+  </div>
 </div>

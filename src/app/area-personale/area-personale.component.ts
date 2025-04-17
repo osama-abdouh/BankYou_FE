@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './area-personale.component.css'
 })
 export class AreaPersonaleComponent {
-  userName = 'Mario Rossi';
-  lastLogin = '11 Aprile 2025, 10:30';
+  userName: string = 'Mario Rossi';
+  lastLogin: string = '11 Aprile 2025, 10:30';
   accountBalance = 15000000.75;
   savingsBalance = 5000.00;
   investmentsBalance = 12000.50;
