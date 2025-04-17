@@ -1,0 +1,121 @@
+<div class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-3xl w-full">
+      <!-- Header -->
+      <div class="mb-6">
+        <h1 class="text-2xl font-semibold text-gray-800">I tuoi dati</h1>
+      </div>
+  
+      <!-- Informazioni Personali -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Nome -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Nome</label>
+          <input
+            type="text"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+            placeholder="Inserisci il tuo nome"
+          />
+        </div>
+  
+        <!-- Cognome -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Cognome</label>
+          <input
+            type="text"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+            placeholder="Inserisci il tuo cognome"
+          />
+        </div>
+  
+        <!-- Codice Fiscale -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Codice Fiscale</label>
+          <input
+            type="text"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+            placeholder="Inserisci il tuo codice fiscale"
+          />
+        </div>
+  
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
+          <input
+            type="email"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+            placeholder="Inserisci la tua email"
+          />
+        </div>
+  
+        <!-- Numero di telefono -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Numero di telefono</label>
+          <input
+            type="tel"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+            placeholder="Inserisci il tuo numero di telefono"
+          />
+        </div>
+  
+        <!-- Data di nascita -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Data di nascita</label>
+          <input
+            type="date"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+          />
+        </div>
+  
+        <!-- Indirizzo di residenza -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-600 mb-1">Indirizzo di residenza</label>
+          <input
+            type="text"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+            placeholder="Inserisci il tuo indirizzo"
+          />
+        </div>
+  
+        <!-- IBAN principale -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-600 mb-1">IBAN principale</label>
+          <input
+            type="text"
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg bg-gray-200 focus:outline-none"
+            value="IT60X0542811101000000123456"
+            readonly
+          />
+        </div>
+  
+        <!-- Tipo di cliente -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-600 mb-1">Tipo di cliente</label>
+          <select
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
+          >
+            <option>Privato</option>
+            <option>Azienda</option>
+          </select>
+        </div>
+      </div>
+  
+      <!-- Pulsanti -->
+      <div class="flex justify-end items-center mt-6">
+        <button
+          class="bg-gray-400 text-white rounded-lg px-6 py-2 hover:bg-gray-500 transition-all duration-300"
+        >
+          Annulla
+        </button>
+        <button
+          class="bg-blue-600 text-white rounded-lg px-6 py-2 ml-4 hover:bg-blue-700 transition-all duration-300"
+        >
+          Modifica
+        </button>
+        <button
+          class="bg-green-600 text-white rounded-lg px-6 py-2 ml-4 hover:bg-green-700 transition-all duration-300 hidden"
+        >
+          Salva
+        </button>
+      </div>
+    </div>
+  </div>

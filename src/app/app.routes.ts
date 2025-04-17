@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
 import { AccountComponent } from './account/account.component';
+import { ITuoiDatiComponent } from './i-tuoi-dati/i-tuoi-dati.component';
 
 export const routes: Routes = [
     {path: "login", component: LoginComponent},
@@ -17,4 +18,5 @@ export const routes: Routes = [
     {path: "contacts", component: ContactsComponent},
     {path: "area-personale", component: AreaPersonaleComponent},
     {path: "account", component: AccountComponent},
+    {path: "i-tuoi.dati", component: ITuoiDatiComponent},
 ];
