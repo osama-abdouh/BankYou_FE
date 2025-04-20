@@ -213,22 +213,20 @@
 
 <div class="popup" [class.show]="isPopupVisible">
   <div class="popup-content">
-    <h2>Conferma Azione</h2>
-    <p>Sei sicuro di voler eseguire questa azione?</p>
-    <button (click)="closePopup()">Annulla</button>
-    <button (click)="closePopup()">Conferma</button>
+    <h2>Informazioni</h2>
+    <p>{{ popupContent }}</p>
+    <button (click)="closePopup()">Chiudi</button>
   </div>
 </div>
 
   <!-- Quick Actions -->
-    <section class="quick-actions">
-      <h2>Azioni Rapide</h2>
-      <button (click)="openPopup()">Bonifico</button>
-      <button (click)="openPopup()">Cordinate conto</button>
-      <button (click)="openPopup()">Aggiungi Fondi</button>
-      <button (click)="openPopup()">Altro</button>
-  
-    </section>
+  <section class="quick-actions">
+    <h2>Azioni Rapide</h2>
+    <button (click)="openPopup('Questa è la sezione per effettuare un bonifico rapido.')">Bonifico rapido</button>
+    <button (click)="openPopup('Questa è la sezione per visualizzare le coordinate del conto.')">Coordinate conto</button>
+    <button (click)="openPopup('Questa è la sezione per aggiungere fondi al tuo conto.')">Aggiungi Fondi</button>
+    <button (click)="openPopup('Questa è la sezione per altre funzionalità.')">Altro</button>
+  </section>
   
 
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

@@ -30,11 +30,23 @@ export class AreaPersonaleComponent {
   }
 
   Aggiungi_fondi() {
-    alert('Funzione Visualizza Investimenti non ancora implementata.');
+    this.popupContent = 'Questa è la sezione per aggiungere fondi al tuo conto.';
+    this.openPopup('Questa è la sezione per aggiungere fondi al tuo conto.');
   }
-
+  
   Altro() {
-    alert('Funzione Altro non ancora implementata.');
+    this.popupContent = 'Questa è la sezione per altre funzionalità.';
+    this.openPopup('Questa è la sezione per altre funzionalità.');
+  }
+  
+  Bonifico_rapido() {
+    this.popupContent = 'Questa è la sezione per effettuare un bonifico rapido.';
+    this.openPopup('Questa è la sezione per effettuare un bonifico rapido.');
+  }
+  
+  Cordinate_conto() {
+    this.popupContent = 'Questa è la sezione per visualizzare le coordinate del conto.';
+    this.openPopup('Questa è la sezione per visualizzare le coordinate del conto.');
   }
   
   isBlurred = false; // Stato per gestire lo sfocamento
@@ -46,14 +58,18 @@ export class AreaPersonaleComponent {
 
 isPopupVisible = false; // Stato per gestire la visibilità del popup
 
-  openPopup() {
-    this.isPopupVisible = true; // Mostra il popup
-  }
+popupContent = ''; // Contenuto dinamico del popup
+
+openPopup(message: string) {
+  this.popupContent = message;
+  this.isPopupVisible = true;
+}
 
   closePopup() {
     this.isPopupVisible = false; // Nasconde il popup
 }
 }
+
 
 
   
