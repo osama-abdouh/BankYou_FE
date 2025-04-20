@@ -8,6 +8,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
 import { AccountComponent } from './account/account.component';
 import { ITuoiDatiComponent } from './i-tuoi-dati/i-tuoi-dati.component';
+import { AiutoComponent } from './account/aiuto/aiuto.component';
 
 export const routes: Routes = [
     {path: "login", component: LoginComponent},
@@ -19,4 +20,5 @@ export const routes: Routes = [
     {path: "area-personale", component: AreaPersonaleComponent},
     {path: "account", component: AccountComponent},
     {path: "i-tuoi.dati", component: ITuoiDatiComponent},
+    {path: "account/aiuto", component: AccountComponent/* AiutoComponent */},
 ];
