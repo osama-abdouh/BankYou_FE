@@ -103,6 +103,14 @@
     font-size: 1rem;
     color: var(--text-light);
   }
+  .card a {
+  color: var(--accent-color); /* Usa il colore principale */
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
 </style>
 
 <!-- Dashboard -->
@@ -129,9 +137,7 @@
     <div class="card">
       <div class="card-icon">❓</div>
       <div class="card-title">Aiuto</div>
-      <li class="nav-item">
-        <a href= [routerLink] ="['/aiuto']" >domande frequenti</a>
-      </li>
+      <a routerLink="/aiuto">Domande frequenti</a>
     </div>
     <div class="card">
       <div class="card-icon">🧍‍♂️</div>

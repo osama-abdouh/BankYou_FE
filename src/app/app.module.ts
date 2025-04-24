@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
-import { routes } from './app.routes'; // Usa solo routes
+import { routes } from './app.routes'; // o app-routing.module se usi un file diverso
+
+import { HomeComponent } from './home/home.component';
+import { AiutoComponent } from './aiuto/aiuto.component';
+// importa anche gli altri componenti che usi...
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AiutoComponent,
+    // altri componenti che hai
+  ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes), // Configura il routing qui
-    AppComponent,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
-  // bootstrap: [AppComponent], // Removed as AppComponent is standalone
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+
