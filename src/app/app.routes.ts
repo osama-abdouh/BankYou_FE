@@ -21,4 +21,5 @@ export const routes: Routes = [
     {path: "account", component: AccountComponent},
     {path: "i-tuoi-dati", component: ITuoiDatiComponent},
     {path: "aiuto", component: AiutoComponent/* AiutoComponent */},
+    
 ];
