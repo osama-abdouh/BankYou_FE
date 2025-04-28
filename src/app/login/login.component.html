@@ -1,24 +1,31 @@
 <div class="login-container">
   <h2>Accesso Area Clienti</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()"> <!-- ngSubmit collega il form al metodo -->
     <div class="form-group">
-      <label for="email">Email o Username</label>
-      <input type="text" id="email" name="email" required>
+      <label for="email">Username</label>
+      <input type="text" id="username" name="username" [(ngModel)]="credentials.username" required>
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
+      <!-- Input per la password, il tipo cambia dinamicamente in base a isPasswordVisible -->
+      <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" name="password" [(ngModel)]="credentials.password" required>
+    
+      <!-- Bottone per alternare la visibilità della password -->
+      <button type="button" (click)="togglePasswordVisibility()">
+        <span *ngIf="isPasswordVisible">Nascondi</span>
+        <span *ngIf="!isPasswordVisible">Mostra</span>
+      </button>
     </div>
-
-    <div class="forgot-password">
-      <a href="#">Password dimenticata?</a>
-    </div>
-
+      <!-- Pulsante di submit per inviare il form -->
     <button type="submit" class="submit-button">Accedi</button>
-
-    <div class="footer-text">
-      Non hai un account? <a href="/register">Registrati qui</a>
-    </div>
   </form>
+
+  <div class="forgot-password">
+    <a href="#">Password dimenticata?</a>
+  </div>
+
+  <div class="footer-text">
+    Non hai un account? <a href="/register">Registrati qui</a>
+  </div>
 </div>
