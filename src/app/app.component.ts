@@ -12,9 +12,17 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'BankU';
   isMenuOpen: boolean = false;
+  isLoggedIn: boolean = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+  login() {
+    this.isLoggedIn = true;
+  }
+
+  logout() {
+    this.isLoggedIn = false;
   }
 }
 
