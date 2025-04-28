@@ -1,4 +1,97 @@
 .custom-navbar {
-    background-color: #1E3A8A; /* Colore di sfondo personalizzato */
-    color: #ffffff; /* Colore del testo */
-  }
+  background-color: #1E3A8A; /* Colore di sfondo personalizzato */
+  color: #ffffff; /* Colore del testo */
+}
+
+/* Menu */
+/* Menu */
+/* Menu */
+.menu-panel {
+position: fixed;
+top: 0;
+right: 0;
+height: 100%;
+width: 300px;  /* Un po' più largo per un look elegante */
+background-color: #f8f9fa;  /* Colore di sfondo morbido */
+box-shadow: -2px 0 15px rgba(0, 0, 0, 0.15);  /* Ombra morbida */
+transform: translateX(100%);  /* Menu nascosto inizialmente */
+transition: transform 0.3s ease-in-out;
+border-radius: 15px 0 0 15px;  /* Bordi arrotondati */
+z-index: 1000;
+padding: 1rem;
+overflow-y: auto;  /* Assicura che il menu sia scrollabile se troppo lungo */
+padding-top: 60px;  /* Aggiungiamo un po' di spazio in cima per evitare la sovrapposizione */
+}
+
+/* Quando il menu è aperto */
+.menu-panel.open {
+transform: translateX(0);  /* Menu visibile */
+}
+
+/* Pulsante di chiusura con freccia */
+.close-btn {
+position: absolute;
+top: 20px;  /* Posizionato in alto a sinistra del menu */
+left: 20px;  /* Posizionato a sinistra del menu */
+background: none;
+border: none;
+font-size: 30px;
+color: #007bff;  /* Blu elegante */
+cursor: pointer;
+z-index: 1100;  /* Assicurati che sia sopra il contenuto del menu */
+transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+color: #0056b3;  /* Colore blu scuro al passaggio del mouse */
+}
+
+/* Icona della freccia */
+.close-btn i {
+font-size: 30px;
+}
+
+/* Aggiungiamo uno sfondo semi-trasparente e morbido */
+.menu-panel a {
+display: block;
+padding: 15px;
+color: #333;
+text-decoration: none;
+border-bottom: 1px solid #ddd;
+transition: background-color 0.2s ease;
+}
+
+/* Hover sugli elementi del menu */
+.menu-panel a:hover {
+background-color: #007bff;
+color: white;
+}
+
+/* Aggiungi margini per l'elemento del menu */
+.menu-panel a:last-child {
+border-bottom: none;
+}
+.btn-secondary {
+background-color: #1E3A8A; /* Colore blu elegante */
+border: none; /* Rimuove il bordo */
+color: white; /* Colore del testo (freccia) */
+padding: 10px 20px; /* Spaziatura interna */
+border-radius: 5px; /* Bordi arrotondati per un aspetto moderno */
+font-size: 24px; /* Dimensione della freccia */
+transition: background-color 0.3s ease; /* Transizione per effetto hover */
+}
+
+/* Cambia colore quando passi sopra il bottone */
+.btn-secondary:hover {
+background-color: #0056b3; /* Colore blu scuro al passaggio del mouse */
+}
+
+/* Cambia colore quando il menu è aperto (se applicato) */
+.btn-secondary.active {
+background-color: #0056b3; /* Blu scuro quando attivo */
+}
+
+/* Se preferisci una diversa dimensione della freccia */
+.btn-secondary i {
+font-size: 30px; /* Aumenta la dimensione della freccia */
+}

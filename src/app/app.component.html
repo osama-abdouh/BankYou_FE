@@ -5,31 +5,29 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink] = "['/home']">Home</a>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            sign in
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" [routerLink] ="['/login']" >login</a></li>
-            <li><a class="dropdown-item" [routerLink] ="['/register']" >register</a></li>
-          </ul>
+          <a class="nav-link active" [routerLink] ="['/about_us']" >About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink] ="['/about_us']" >About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink] ="['/contacts']" >contacts</a>
+          <a class="nav-link active" [routerLink] ="['/contacts']" >contacts</a>
         </li>
       </ul>
-      <form class="d-flex">
+      <form class="d-flex search-form">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <div class="dropdown">
+        <button class="btn btn-secondary" (click)="toggleMenu()">
+          ☰
+        </button>
+        <div class="menu-panel" [class.open]="isMenuOpen">
+          <button class="close-btn" (click)="toggleMenu()">
+            <i class="fas fa-arrow-right"></i> <!-- Freccia moderna blu -->
+          </button>
+          <a class="dropdown-item" href="login">login</a>
+          <a class="dropdown-item" href="register">sign in</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -37,3 +35,13 @@
 <div class = "container">
 <router-outlet></router-outlet>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("customMenuBtn");
+    const dropdown = document.getElementById("customDropdown");
+
+    menuBtn.addEventListener("click", () => {
+      dropdown.classList.toggle("open");
+    });
+  });
+</script>
