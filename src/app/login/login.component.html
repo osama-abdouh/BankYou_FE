@@ -8,14 +8,15 @@
 
     <div class="form-group">
       <label for="password">Password</label>
-      <!-- Input per la password, il tipo cambia dinamicamente in base a isPasswordVisible -->
-      <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" name="password" [(ngModel)]="credentials.password" required>
-    
-      <!-- Bottone per alternare la visibilità della password -->
-      <button type="button" (click)="togglePasswordVisibility()">
-        <span *ngIf="isPasswordVisible">Nascondi</span>
-        <span *ngIf="!isPasswordVisible">Mostra</span>
-      </button>
+      <div class="password-container">
+        <!-- Input per la password -->
+        <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" name="password" [(ngModel)]="credentials.password" required>
+        
+        <!-- Bottone con icona per alternare la visibilità della password -->
+        <button type="button" class="toggle-password" (click)="togglePasswordVisibility()" aria-label="Toggle password visibility">
+          <i class="fas" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+        </button>
+      </div>
     </div>
       <!-- Pulsante di submit per inviare il form -->
     <button type="submit" class="submit-button">Accedi</button>

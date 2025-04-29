@@ -94,3 +94,27 @@ body {
   .forgot-password a:hover {
     text-decoration: underline;
   }
+  .password-container {
+    position: relative;
+  }
+  
+  .password-container input {
+    width: 100%;
+    padding-right: 40px; /* Spazio per il pulsante */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .toggle-password:focus {
+    outline: none;
+  }
