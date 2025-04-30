@@ -116,7 +116,7 @@
     <div class="checkbox-group">
       <input type="checkbox" id="termini" [(ngModel)]="user.termini" name="termini" required #termini="ngModel">
       <label for="termini">Accetto i <a href="#">termini e condizioni</a></label>
-      <div *ngIf="termini.invalid && termini.touched" class="error-message">
+      <div *ngIf="termini.invalid" class="error-message">
         Devi accettare i termini e condizioni.
       </div>
       <div *ngIf="termini.touched && registerForm.invalid" class="error-message">

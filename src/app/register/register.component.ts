@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -52,19 +52,25 @@ export class RegisterComponent {
     }
   }
 
-  onSubmit(form: any) {
-    if (form.valid)  {
-      // Trova il primo campo non valido
-      const firstInvalidControl = this.registerForm?.nativeElement.querySelector('.ng-invalid');
-      if (firstInvalidControl) {
-        firstInvalidControl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  onSubmit(form: NgForm): void {
+    if (form.invalid) {
+      const firstInvalidControl = document.querySelector('.ng-invalid');
+  
+      if (firstInvalidControl instanceof HTMLElement) {
         firstInvalidControl.focus();
+        firstInvalidControl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+  
+      Object.keys(form.controls).forEach(field => {
+        const control = form.controls[field];
+        control.markAsTouched({ onlySelf: true });
+      });
+  
+      return;
     }
-    else {
-      console.log('Dati registrazione:', this.user);
-      // Logica per inviare i dati al server
-    }
+  
+    // Prosegui con la logica di invio (es. chiamata al backend)
+    console.log('Form valido. Dati utente:', this.user);
   }
 
 }
