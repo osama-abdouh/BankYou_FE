@@ -4,12 +4,13 @@ import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
-import { LoginComponent } from './app/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(FormsModule),  // Importa i moduli necessari
+    importProvidersFrom(FormsModule),
+    importProvidersFrom(HttpClientModule),  // Importa i moduli necessari
     provideRouter(routes),  // Definisci il router
-    LoginComponent          // Importa LoginComponent come standalone
+             // Importa LoginComponent come standalone
   ]
 }).catch(err => console.error(err));
