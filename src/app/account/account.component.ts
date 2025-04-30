@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AccountComponent {
   title = 'banking-app';
+  constructor(private router: Router) {}
+
+  vaiAAiuto() {
+    this.router.navigate(['/aiuto']);
+  }
+  vaiAituoidati() {
+    this.router.navigate(['/i-tuoi-dati']);
+  }
 }
