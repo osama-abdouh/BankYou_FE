@@ -121,3 +121,68 @@ body {
 .toggle-password:focus {
   outline: none;
 }
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.submit-button:disabled {
+  background-color: #007bff;
+  opacity: 0.5; /* Rende il pulsante trasparente */
+  cursor: not-allowed; /* Cambia il cursore per indicare che non è cliccabile */
+}
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.input-container input {
+  flex: 1;
+}
+.input-container.with-check {
+  padding-right: 50px; /* Sposta il contenuto a sinistra per fare spazio alla spunta verde */
+}
+
+.input-container input {
+  flex: 1;
+}
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #555;
+  transition: right 0.3s ease;
+}
+
+.input-container.with-check .toggle-password {
+  right: 50px; /* Sposta l'icona dell'occhio a sinistra */
+}
+
+.toggle-password:focus {
+  outline: none;
+}
+
+
+.input-container i.fa-check-circle {
+  position: absolute;
+  right: 10px;
+  margin-left: 10px;
+  color: rgb(2, 157, 28);
+  font-size: 1.2rem;
+  pointer-events: none; /* Impedisce l'interazione con l'icona */
+}

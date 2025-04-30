@@ -1,62 +1,137 @@
 <div class="registration-container">
   <h2>Registrazione</h2>
-  <form>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
     <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" required>
+      <label for="nome">Nome*</label>
+      <div class="input-container">
+        <input type="text" id="nome" name="nome" [(ngModel)]="user.nome" required #nome="ngModel">
+        <i class="fas fa-check-circle" *ngIf="nome.valid && nome.touched"></i>
+      </div>
+      <div *ngIf="nome.invalid && nome.touched" class="error-message">
+        Il nome è obbligatorio.
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="cognome">Cognome</label>
-      <input type="text" id="cognome" name="cognome" required>
+      <label for="cognome">Cognome*</label>
+      <div class="input-container">
+        <input type="text" id="cognome" name="cognome" [(ngModel)]="user.cognome" required #cognome="ngModel">
+        <i class="fas fa-check-circle" *ngIf="cognome.valid && cognome.touched"></i>
+      </div>
+      <div *ngIf="cognome.invalid && cognome.touched" class="error-message">
+        Il cognome è obbligatorio.
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+      <label for="email">Email*</label>
+      <div class="input-container">
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" required email #email="ngModel">
+        <i class="fas fa-check-circle" *ngIf="email.valid && email.touched"></i>
+      </div>
+      <div *ngIf="email.invalid && email.touched" class="error-message">
+        Inserisci un'email valida.
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="telefono">Numero di Telefono</label>
-      <input type="tel" id="telefono" name="telefono" required>
+      <label for="telefono">Numero di Telefono*</label>
+      <div class="input-container">
+        <input type="tel" id="telefono" name="telefono" [(ngModel)]="user.telefono" required #telefono="ngModel">
+        <i class="fas fa-check-circle" *ngIf="telefono.valid && telefono.touched"></i>
+      </div>
+      <div *ngIf="telefono.invalid && telefono.touched" class="error-message">
+        Il numero di telefono è obbligatorio.
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="codice-fiscale">Codice Fiscale</label>
-      <input type="text" id="codice-fiscale" name="codice-fiscale" maxlength="16" required pattern="[A-Z0-9]{16}" title="Inserisci un codice fiscale valido di 16 caratteri">
+      <label for="codice-fiscale">Codice Fiscale*</label>
+      <div class="input-container">
+        <input type="text" id="codice-fiscale" name="codice-fiscale" [(ngModel)]="user.codiceFiscale" maxlength="16" required pattern="[A-Z0-9]{16}" #codiceFiscale="ngModel">
+        <i class="fas fa-check-circle" *ngIf="codiceFiscale.valid && codiceFiscale.touched"></i>
+      </div>
+      <div *ngIf="codiceFiscale.invalid && codiceFiscale.touched" class="error-message">
+        Inserisci un codice fiscale valido di 16 caratteri.
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="password">Password</label>
-      <div class="password-container">
-        <input [type]="isPasswordVisible ? 'text' : 'password'" id="password" name="password" required>
-        <button type="button" class="toggle-password" (click)="togglePasswordVisibility()" aria-label="Toggle password visibility">
+      <label for="password">Password*</label>
+      <div class="input-container" [ngClass]="{'with-check': password.valid && password.touched && passwordErrors.length === 0}">
+        <input 
+          [type]="isPasswordVisible ? 'text' : 'password'" 
+          id="password" 
+          name="password" 
+          [(ngModel)]="user.password" 
+          required 
+          minlength="8" 
+          (input)="validatePassword()" 
+          #password="ngModel">
+        <i class="fas fa-check-circle" *ngIf="password.valid && password.touched && passwordErrors.length === 0"></i>
+        <button 
+          type="button" 
+          class="toggle-password" 
+          (click)="togglePasswordVisibility()" 
+          aria-label="Toggle password visibility">
           <i class="fas" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
         </button>
       </div>
-      <div class="small">La password deve contenere almeno 8 caratteri.</div>
+      <div *ngIf="password.touched && passwordErrors.length > 0" class="error-message">
+        <ul>
+          <li *ngFor="let error of passwordErrors">{{ error }}</li>
+        </ul>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="conferma-password">Conferma Password</label>
-      <div class="password-container">
-        <input [type]="isConfirmPasswordVisible ? 'text' : 'password'" id="conferma-password" name="conferma-password" required>
-        <button type="button" class="toggle-password" (click)="toggleConfirmPasswordVisibility()" aria-label="Toggle confirm password visibility">
-          <i class="fas" [ngClass]="isConfirmPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+      <label for="conferma-password">Conferma Password*</label>
+      <div class="input-container" [ngClass]="{'with-check': confermaPassword.valid && confermaPassword.touched && user.confermaPassword === user.password}">
+        <input 
+          [type]="isConfirmPasswordVisible ? 'text' : 'password'" 
+          id="conferma-password" 
+          name="conferma-password" 
+          [(ngModel)]="user.confermaPassword" 
+          required 
+          #confermaPassword="ngModel">
+        <!-- Spunta verde solo se la conferma password è valida e uguale alla password -->
+        <i class="fas fa-check-circle" 
+           *ngIf="confermaPassword.valid && confermaPassword.touched && user.confermaPassword === user.password"></i>
+        <button 
+          type="button" 
+          class="toggle-password" 
+          (click)="toggleConfirmPasswordVisibility()" 
+          aria-label="Toggle confirm password visibility">
+          <i class="fas" style = "color: black;" [ngClass]="isConfirmPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
         </button>
       </div>
+      <div *ngIf="confermaPassword.invalid && confermaPassword.touched" class="error-message">
+        Conferma la password.
+      </div>
+      <div *ngIf="user.confermaPassword !== user.password && confermaPassword.touched" class="error-message">
+        Le password non corrispondono.
+      </div>
     </div>
-    
+
     <div class="checkbox-group">
-      <input type="checkbox" id="termini" required>
+      <input type="checkbox" id="termini" [(ngModel)]="user.termini" name="termini" required #termini="ngModel">
       <label for="termini">Accetto i <a href="#">termini e condizioni</a></label>
+      <div *ngIf="termini.invalid && termini.touched" class="error-message">
+        Devi accettare i termini e condizioni.
+      </div>
+      <div *ngIf="termini.touched && registerForm.invalid" class="error-message">
+        Devi compilare i campi obbligatori.
+      </div>
     </div>
 
-    <button type="submit" class="submit-button">Registrati</button>
-
+      <button 
+      type="submit" 
+      class="submit-button" 
+      [disabled]="!user.termini">
+      Registrati
+    </button>
     <div class="footer-text">
       Hai già un account? <a href="/login">Accedi qui</a>
     </div>
   </form>
 </div>
-<router-outlet></router-outlet>
