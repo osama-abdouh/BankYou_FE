@@ -75,6 +75,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
     flex: 0 0 300px;
     height: 300px;
+    cursor: pointer; /* Aggiunto per indicare che l'intera card è cliccabile */
   }
 
   .card:hover {
@@ -103,14 +104,15 @@
     font-size: 1rem;
     color: var(--text-light);
   }
-  .card a {
-  color: var(--accent-color); /* Usa il colore principale */
-  text-decoration: none;
-}
 
-.card a:hover {
-  text-decoration: underline;
-}
+  .card a {
+    color: var(--accent-color); /* Usa il colore principale */
+    text-decoration: none;
+  }
+
+  .card a:hover {
+    text-decoration: underline;
+  }
 </style>
 
 <!-- Dashboard -->
@@ -140,21 +142,21 @@
       <a routerLink="/aiuto" class="card-link" style="cursor: pointer;">
         Vai alla pagina di dettaglio
       </a>
-      
     </div>
     
-    <div class="card">
-      <div class="card-icon">🧍‍♂️</div>
-      <div class="card-title">I tuoi dati</div>
-      <p (click)="vaiAituoidati()" class="card-link" style="cursor: pointer;">
-        Gestisci i tuoi dati personali
-      </p>
+    <!-- Card aggiornata: I tuoi dati -->
+<div class="card" (click)="vaiAituoidati()">
+  <div class="card-icon">🧍‍♂️</div>
+  <div class="card-title">I tuoi dati</div>
+  <p class="card-link" style="color: #FFFFFF;">
+    Gestisci i tuoi dati personali
+  </p>
+</div>
       
-    </div>
     <div class="card">
       <div class="card-icon">📇</div>
       <div class="card-title">Rubrica</div>
       <div class="card-description">Gestisci i tuoi contatti</div>
     </div>
   </div>
-</div> 
+</div>

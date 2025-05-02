@@ -9,7 +9,7 @@
     /* Impostazioni generali */
     body {
       font-family: 'Roboto', 'Helvetica Neue', sans-serif;
-      background-color: #FFFFFF;
+      background-color: #FFFFFF; /* Sfondo bianco */
       color: #000000;
       margin: 0;
       padding: 0;
@@ -21,36 +21,47 @@
     }
 
     .container {
-      max-width: 800px; /* Aumentata la larghezza massima */
+      max-width: 1200px; /* Adattato per schermi da PC */
       width: 100%;
-      margin: 0 auto;
-      padding: 32px; /* Aumentato il padding */
+      margin: 40px auto;
+      padding: 32px;
+      background-color: #F9F9F9; /* Sfondo chiaro per il contenitore */
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     /* Header */
     .header {
       text-align: center;
-      font-size: 22px;
+      font-size: 36px;
       font-weight: bold;
       padding: 24px 0;
-      border-bottom: 1px solid #E0E0E0;
+      color: #000000; /* Titolo in nero */
+      margin-bottom: 32px;
     }
 
     /* Blocchi principali */
     .block {
       background-color: #FFFFFF;
-      padding: 16px;
-      margin-bottom: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
       border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .block-title {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 20px;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
+      color: #007BFF; /* Colore blu acceso per i titoli delle sezioni */
     }
 
     .row {
@@ -61,23 +72,23 @@
 
     .label {
       font-weight: 500;
-      font-size: 14px;
+      font-size: 16px;
       color: #333333;
       flex: 1;
     }
 
     .value {
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
       color: #000000;
       flex: 2;
     }
 
     /* Icone */
     .icon {
-      font-size: 16px;
+      font-size: 20px;
       margin-right: 12px;
-      cursor: default; /* Rimosso il puntatore interattivo */
+      color: #007BFF;
     }
 
     /* Badge */
@@ -85,8 +96,8 @@
       display: inline-block;
       background-color: #D4EDDA;
       color: #155724;
-      padding: 4px 8px;
-      border-radius: 4px;
+      padding: 6px 12px;
+      border-radius: 8px;
       font-size: 14px;
       font-weight: 500;
     }
