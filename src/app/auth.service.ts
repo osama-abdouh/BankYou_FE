@@ -23,4 +23,7 @@ export class AuthService {
     localStorage.removeItem('isAuthenticated');
     this.isAuthenticatedSubject.next(false);
   }
+  isAuthenticated(): boolean {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  }
 }

@@ -7,6 +7,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AreaPersonaleComponent } from './area-personale/area-personale.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AuthGuard } from './auth.guard';
 
 
 export const routes: Routes = [
@@ -16,7 +17,7 @@ export const routes: Routes = [
     {path: "about_us", component:   AboutUsComponent},
     {path: "register", component: RegisterComponent},
     {path: "contacts", component: ContactsComponent},
-    {path: "area-personale", component: AreaPersonaleComponent},
+    {path: "area-personale", component: AreaPersonaleComponent, canActivate: [AuthGuard]},
     { path: 'profile', component: ProfileComponent },
     { path: 'settings', component: SettingsComponent },
 ];
