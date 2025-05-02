@@ -8,6 +8,7 @@ import { AreaPersonaleComponent } from './area-personale/area-personale.componen
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
+
 export const routes: Routes = [
     {path: "login", component: LoginComponent},
     {path: "", redirectTo: "home", pathMatch: "full"},
