@@ -1,121 +1,192 @@
-<div class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-8 max-w-3xl w-full">
-      <!-- Header -->
-      <div class="mb-6">
-        <h1 class="text-2xl font-semibold text-gray-800">I tuoi dati</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I tuoi dati</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Impostazioni generali */
+    body {
+      font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px; /* Aumentata la larghezza massima */
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px; /* Aumentato il padding */
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      padding: 24px 0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    /* Blocchi principali */
+    .block {
+      background-color: #FFFFFF;
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .block-title {
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .label {
+      font-weight: 500;
+      font-size: 14px;
+      color: #333333;
+      flex: 1;
+    }
+
+    .value {
+      font-weight: 400;
+      font-size: 16px;
+      color: #000000;
+      flex: 2;
+    }
+
+    /* Icone */
+    .icon {
+      font-size: 16px;
+      margin-right: 12px;
+      cursor: default; /* Rimosso il puntatore interattivo */
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background-color: #D4EDDA;
+      color: #155724;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .value {
+        margin-top: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      I TUOI DATI
+    </div>
+
+    <!-- Dati Personali -->
+    <div class="block">
+      <div class="block-title">Dati Personali</div>
+      <div class="row">
+        <span class="icon">👤</span>
+        <span class="label">Nome completo:</span>
+        <span class="value">Mario Rossi</span>
       </div>
-  
-      <!-- Informazioni Personali -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Nome -->
-        <div>
-          <label class="block text-sm font-medium text-gray-600 mb-1">Nome</label>
-          <input
-            type="text"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-            placeholder="Inserisci il tuo nome"
-          />
-        </div>
-  
-        <!-- Cognome -->
-        <div>
-          <label class="block text-sm font-medium text-gray-600 mb-1">Cognome</label>
-          <input
-            type="text"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-            placeholder="Inserisci il tuo cognome"
-          />
-        </div>
-  
-        <!-- Codice Fiscale -->
-        <div>
-          <label class="block text-sm font-medium text-gray-600 mb-1">Codice Fiscale</label>
-          <input
-            type="text"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-            placeholder="Inserisci il tuo codice fiscale"
-          />
-        </div>
-  
-        <!-- Email -->
-        <div>
-          <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
-          <input
-            type="email"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-            placeholder="Inserisci la tua email"
-          />
-        </div>
-  
-        <!-- Numero di telefono -->
-        <div>
-          <label class="block text-sm font-medium text-gray-600 mb-1">Numero di telefono</label>
-          <input
-            type="tel"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-            placeholder="Inserisci il tuo numero di telefono"
-          />
-        </div>
-  
-        <!-- Data di nascita -->
-        <div>
-          <label class="block text-sm font-medium text-gray-600 mb-1">Data di nascita</label>
-          <input
-            type="date"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-          />
-        </div>
-  
-        <!-- Indirizzo di residenza -->
-        <div class="md:col-span-2">
-          <label class="block text-sm font-medium text-gray-600 mb-1">Indirizzo di residenza</label>
-          <input
-            type="text"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-            placeholder="Inserisci il tuo indirizzo"
-          />
-        </div>
-  
-        <!-- IBAN principale -->
-        <div class="md:col-span-2">
-          <label class="block text-sm font-medium text-gray-600 mb-1">IBAN principale</label>
-          <input
-            type="text"
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg bg-gray-200 focus:outline-none"
-            value="IT60X0542811101000000123456"
-            readonly
-          />
-        </div>
-  
-        <!-- Tipo di cliente -->
-        <div class="md:col-span-2">
-          <label class="block text-sm font-medium text-gray-600 mb-1">Tipo di cliente</label>
-          <select
-            class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300"
-          >
-            <option>Privato</option>
-            <option>Azienda</option>
-          </select>
-        </div>
+      <div class="row">
+        <span class="icon">🆔</span>
+        <span class="label">Codice Fiscale:</span>
+        <span class="value">RSSMRA85M01H501Z</span>
       </div>
-  
-      <!-- Pulsanti -->
-      <div class="flex justify-end items-center mt-6">
-        <button
-          class="bg-gray-400 text-white rounded-lg px-6 py-2 hover:bg-gray-500 transition-all duration-300"
-        >
-          Annulla
-        </button>
-        <button
-          class="bg-blue-600 text-white rounded-lg px-6 py-2 ml-4 hover:bg-blue-700 transition-all duration-300"
-        >
-          Modifica
-        </button>
-        <button
-          class="bg-green-600 text-white rounded-lg px-6 py-2 ml-4 hover:bg-green-700 transition-all duration-300 hidden"
-        >
-          Salva
-        </button>
+      <div class="row">
+        <span class="icon">💼</span>
+        <span class="label">Professione:</span>
+        <span class="value">Impiegato</span>
+      </div>
+    </div>
+
+    <!-- Dati Bancari -->
+    <div class="block">
+      <div class="block-title">Dati Bancari</div>
+      <div class="row">
+        <span class="label">Codice adesione:</span>
+        <span class="value">1234567890</span>
+      </div>
+      <div class="row">
+        <span class="label">IBAN:</span>
+        <span class="value" style="font-family: 'Courier New', monospace;">IT00 A123 4567 8901 2345 6789 012</span>
+      </div>
+    </div>
+
+    <!-- Contatti -->
+    <div class="block">
+      <div class="block-title">Contatti</div>
+      <div class="row">
+        <span class="icon">📞</span>
+        <span class="label">Telefono:</span>
+        <span class="value">+39 347 123 4567</span>
+      </div>
+      <div class="row">
+        <span class="icon">✉️</span>
+        <span class="label">Email:</span>
+        <span class="value">mario.rossi&#64;example.com</span>
+      </div>
+      <div class="row">
+        <span class="icon">🏠</span>
+        <span class="label">Residenza:</span>
+        <span class="value">Via Roma 1, 00100 Roma RM</span>
+      </div>
+    </div>
+
+    <!-- Dispositivi in uso -->
+    <div class="block">
+      <div class="block-title">Dispositivi in uso</div>
+      <div class="row">
+        <span class="icon">📱</span>
+        <span class="label">Dispositivo principale:</span>
+        <span class="value">iPhone</span>
+      </div>
+      <div class="row">
+        <span class="icon">💻</span>
+        <span class="label">Dispositivo secondario:</span>
+        <span class="value">MacBook</span>
+      </div>
+    </div>
+
+    <!-- Documenti -->
+    <div class="block">
+      <div class="block-title">Documenti</div>
+      <div class="row">
+        <span class="label">Carta d'identità:</span>
+        <span class="value"><span class="badge">In corso di validità</span></span>
       </div>
     </div>
   </div>
+</body>
+</html>
