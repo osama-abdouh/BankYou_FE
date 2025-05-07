@@ -3,10 +3,16 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule,NgForm } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-register',
-  imports: [RouterModule, CommonModule,FormsModule],
+  imports: [RouterModule, CommonModule,FormsModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatFormFieldModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -22,11 +28,37 @@ export class RegisterComponent {
     email: '',
     telefono: '',
     codiceFiscale: '',
+    dataNascita: '',
+    genere: '',
     password: '',
     confermaPassword: '',
     termini: false
   };
 
+  dataNascitaError: string = '';
+  maxDate: string = '';
+  constructor() {
+    // Calcola la data massima (oggi)
+    const oggi = new Date();
+    this.maxDate = oggi.toISOString().split('T')[0]; // Formatta la data come YYYY-MM-DD
+  }
+  validateDataNascita(): void {
+    const oggi = new Date();
+    const dataNascita = new Date(this.user.dataNascita);
+
+    // Controlla se l'utente ha meno di 18 anni
+    const eta = oggi.getFullYear() - dataNascita.getFullYear();
+    const mese = oggi.getMonth() - dataNascita.getMonth();
+    const giorno = oggi.getDate() - dataNascita.getDate();
+
+    if (eta < 18 || (eta === 18 && (mese < 0 || (mese === 0 && giorno < 0)))) {
+      this.dataNascitaError = 'Devi avere almeno 18 anni per registrarti.';
+      return;
+    }
+
+    // Nessun errore
+    this.dataNascitaError = '';
+  }
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }

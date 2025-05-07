@@ -57,6 +57,56 @@
     </div>
 
     <div class="form-group">
+      <label for="dataNascita">Data di Nascita*</label>
+      <div class="input-container" [ngClass]="{'with-check': dataNascita.valid && !dataNascitaError}">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Data di Nascita</mat-label>
+          <input 
+            matInput 
+            [matDatepicker]="picker" 
+            [(ngModel)]="user.dataNascita" 
+            (dateChange)="validateDataNascita()" 
+            [max]="maxDate" 
+            required 
+            name="dataNascita" 
+            #dataNascita="ngModel">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <i class="fas fa-check-circle" *ngIf="dataNascita.valid && !dataNascitaError"></i>
+      </div>
+      <div *ngIf="dataNascitaError" class="error-message">
+        {{ dataNascitaError }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="genere">Genere*</label>
+      <div class="input-container" [ngClass]="{'with-check': genere.valid && genere.touched}">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Genere</mat-label>
+          <mat-select 
+            id="genere" 
+            name="genere" 
+            [(ngModel)]="user.genere" 
+            required 
+            #genere="ngModel">
+            <mat-option value="" disabled>Seleziona</mat-option>
+            <mat-option value="M">Maschio</mat-option>
+            <mat-option value="F">Femmina</mat-option>
+            <mat-option value="Altro">Altro</mat-option>
+            <mat-option value="nonspecifico">preferisco non specificare</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Spunta verde -->
+        <i class="fas fa-check-circle" *ngIf="genere.valid && genere.touched"></i>
+      </div>
+      <div *ngIf="genere.invalid && genere.touched" class="error-message">
+        Il genere è obbligatorio.
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="password">Password*</label>
       <div class="input-container" [ngClass]="{'with-check': password.valid && password.touched && passwordErrors.length === 0}">
         <input 

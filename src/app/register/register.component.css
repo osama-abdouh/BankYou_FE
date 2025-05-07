@@ -169,6 +169,10 @@ body {
   transition: right 0.3s ease;
 }
 
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
 .input-container.with-check .toggle-password {
   right: 50px; /* Sposta l'icona dell'occhio a sinistra */
 }
