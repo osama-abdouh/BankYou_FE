@@ -8,7 +8,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { AuthService } from '../auth.service';
+import { User } from './user.model';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +24,7 @@ export class RegisterComponent {
   isConfirmPasswordVisible: boolean = false;
   passwordErrors: string[] = [];
   @ViewChild('registerForm') registerForm: ElementRef | undefined;
+  maxDate: string = '';
 
   user = {
     nome: '',
@@ -34,14 +38,17 @@ export class RegisterComponent {
     confermaPassword: '',
     termini: false
   };
+   successMessage = '';
+  errorMessage = '';
 
-  dataNascitaError: string = '';
-  maxDate: string = '';
-  constructor() {
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient) {
     // Calcola la data massima (oggi)
     const oggi = new Date();
     this.maxDate = oggi.toISOString().split('T')[0]; // Formatta la data come YYYY-MM-DD
   }
+
+  dataNascitaError: string = '';
+
   validateDataNascita(): void {
     const oggi = new Date();
     const dataNascita = new Date(this.user.dataNascita);
@@ -59,6 +66,7 @@ export class RegisterComponent {
     // Nessun errore
     this.dataNascitaError = '';
   }
+
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
@@ -66,6 +74,7 @@ export class RegisterComponent {
   toggleConfirmPasswordVisibility() {
     this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
   }
+
   validatePassword() {
     const password = this.user.password;
     this.passwordErrors = [];
@@ -83,26 +92,53 @@ export class RegisterComponent {
       this.passwordErrors.push('La password deve contenere almeno 8 caratteri.');
     }
   }
+isSubmitting = false;
+  onSubmit() {
+     if (this.isSubmitting) return;
+  this.isSubmitting = true;
+  console.log('Submit invocato, dati:', this.user);
 
-  onSubmit(form: NgForm): void {
-    if (form.invalid) {
-      const firstInvalidControl = document.querySelector('.ng-invalid');
-  
-      if (firstInvalidControl instanceof HTMLElement) {
-        firstInvalidControl.focus();
-        firstInvalidControl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-  
-      Object.keys(form.controls).forEach(field => {
-        const control = form.controls[field];
-        control.markAsTouched({ onlySelf: true });
-      });
-  
-      return;
-    }
-  
-    // Prosegui con la logica di invio (es. chiamata al backend)
-    console.log('Form valido. Dati utente:', this.user);
+  // Converte dataNascita in formato "yyyy-MM-dd"
+  let dataNascitaFormattata = '';
+  if (this.user.dataNascita && !isNaN(Date.parse(this.user.dataNascita))) {
+    const d = new Date(this.user.dataNascita);
+    const yyyy = d.getFullYear();
+    const mm = ('0' + (d.getMonth() + 1)).slice(-2); // mesi 0-based
+    const dd = ('0' + d.getDate()).slice(-2);
+    dataNascitaFormattata = `${yyyy}-${mm}-${dd}`;
   }
 
+  // Costruisci il payload da inviare al backend
+  const payload = {
+    nome: this.user.nome,
+    cognome: this.user.cognome,
+    email: this.user.email,
+    telefono: this.user.telefono,
+    codiceFiscale: this.user.codiceFiscale,
+    dataNascita: dataNascitaFormattata,
+    genere: this.user.genere,
+    password: this.user.password
+  };
+
+  console.log('Payload finale da inviare:', payload);
+
+  // Effettua la chiamata HTTP
+this.http.post<any>('http://localhost:8080/api/auth/register', payload)
+  .subscribe({
+    next: (res) => {
+      // res.message contiene il messaggio di successo
+      this.successMessage = res.message;
+      alert(this.successMessage);
+      setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 1000);
+    },
+    error: (err) => {
+      // err.error.error contiene il messaggio di errore
+      this.errorMessage = err.error?.error || 'Errore durante la registrazione!';
+    }
+  });
+}
+
+   
 }

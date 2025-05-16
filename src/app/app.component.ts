@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service'; // Importa il tuo servizio di autenticazione
-
+import { HttpClientModule } from '@angular/common/http'
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,CommonModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
